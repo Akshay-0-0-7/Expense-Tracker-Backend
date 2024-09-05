@@ -2,25 +2,32 @@
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="form p-5 rounded shadow" style="width: 400px;">
             <h2 class="text-center mb-4">Register</h2>
-            <form>
+            <form  (ngSubmit)="onSubmit()" class="form-group" [formGroup]="registerForm">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Username" required>
+                    <input type="text" class="form-control" placeholder="Username" formControlName="username" [class.is-invalid]="validateControl('username')">
+                    <span class="text-danger" *ngIf="validateControlError('username','required')">Username is Mandatory</span>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email" required>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email" [class.is-invalid]="validateControl('email')">
+                    <span class="text-danger" *ngIf="validateControlError('email','required')">Email is Mandatory</span>
+                    <span class="text-danger" *ngIf="validateControlError('email','email')">Enter a valid Email</span>
                 </div>
                 <div class="mb-3 position-relative">
-                    <input type="password" class="form-control password" placeholder="Password" required>
+                    <input type="password" class="form-control password" formControlName="password" placeholder="Password" [class.is-invalid]="validateControl('password')">
                     <i class='bx bx-hide eye-icon'></i>
+                    <span class="text-danger" *ngIf="validateControlError('password','required')">Password is Mandatory</span>
+                    <span class="text-danger" *ngIf="validateControlError('password','minlength')">Password should have more than 6 letters</span>
                 </div>
                 <div class="mb-3 position-relative">
-                    <input type="password" class="form-control password" placeholder="Confirm Password" required>
+                    <input type="password" class="form-control password" formControlName="confirmpassword" placeholder="Confirm Password" [class.is-invalid]="validateControl('confirmpassword')">
                     <i class='bx bx-hide eye-icon'></i>
+                    <span class="text-danger" *ngIf="validateControlError('confirmpassword','required')">Password is Mandatory</span>
+                    <span class="text-danger" *ngIf="validateControlError('confirmpassword','passwordMismatch')">Passwords do not match </span>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Register</button>
+                <button type="submit" class="btn btn-primary w-100" [disabled]="!isFormValid">Register</button>
             </form>
             <div class="text-center mt-3">
-                Already have an account? <a href=# class="text-decoration-none">Login</a>
+                Already have an account? <a routerLink="/login" class="text-decoration-none">Login</a>
             </div>
         </div>
     </div>
