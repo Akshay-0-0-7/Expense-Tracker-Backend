@@ -7,6 +7,11 @@ import { RegisterComponent } from './Components/Forms/register/register.componen
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/Navigation/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutusComponent } from './Components/Pages/aboutus/aboutus.component';
+import { StocksComponent } from './Components/Pages/stocks/stocks.component';
+import { LearningComponent } from './Components/Pages/learning/learning.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +19,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
+    AboutusComponent,
+    StocksComponent,
+    LearningComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
