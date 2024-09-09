@@ -40,18 +40,6 @@ export class RegisterComponent {
     this.registerForm.get(input)?.dirty)
   }
 
-  // passwordValidator(control:AbstractControl){
-  //   var password = control.get('password')?.value
-  //   var confirmPassword = control.get('confirmpassword')?.value
-  //   if(password!==confirmPassword){
-  //     control.get('confirmpassword')?.setErrors({passwordMismatch:true})
-  //     return { passwordMismatch:true }
-  //   }
-  //   else{
-  //     return null
-  //   }
-  // }
-
   passwordValidator(): ValidatorFn {
     return (formGroup: AbstractControl): { [key: string]: boolean } | null => {
       const password = formGroup.get('password')?.value;
