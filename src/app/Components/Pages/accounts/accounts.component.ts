@@ -1,19 +1,28 @@
 import { Component } from '@angular/core';
 import { Account } from '../../../Models/Account';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.css']
+  styleUrls: ['./accounts.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate('1s ease-in', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class AccountsComponent {
   // List of accounts
   accounts: Account[] = [
     { bankName: 'Bank A', accountNumber: '123456789', balance: 25000 },
     { bankName: 'Bank B', accountNumber: '987654321', balance: 15000 },
-    { bankName: 'Bank D', accountNumber: '638243924', balance: 5000 },
-    { bankName: 'Bank B', accountNumber: '973439244', balance: 7000 },
+    { bankName: 'Bank C', accountNumber: '638243924', balance: 5000 },
+    { bankName: 'Bank D', accountNumber: '973439244', balance: 7000 },
   ];
 
   // New account object

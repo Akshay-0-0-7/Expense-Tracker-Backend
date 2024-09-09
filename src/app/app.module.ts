@@ -14,6 +14,7 @@ import { StocksComponent } from './Components/Pages/stocks/stocks.component';
 import { LearningComponent } from './Components/Pages/learning/learning.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountsComponent } from './Components/Pages/accounts/accounts.component';
+import { ForgotPasswordComponent } from './Components/Forms/forgotpassword/forgotpassword.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AccountsComponent } from './Components/Pages/accounts/accounts.componen
     StocksComponent,
     LearningComponent,
     AccountsComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

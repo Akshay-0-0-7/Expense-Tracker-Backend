@@ -5,7 +5,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let account of accounts; let i = index">
+    <div class="col-md-4 mb-4" *ngFor="let account of accounts; let i = index" [@fadeIn]>
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{ account.bankName }}</h5>
