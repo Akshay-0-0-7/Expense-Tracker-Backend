@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 class="page-title">Learn Finance & Trading</h1>
+    <div class="card-grid">
+      <div class="card" *ngFor="let resource of resources" [@fadeIn]>
+        <img [src]="resource.imageUrl" alt="Course Image" class="card-img">
+        <div class="card-body">
+          <h2 class="card-title">{{ resource.title }}</h2>
+          <p class="card-text">{{ resource.description }}</p>
+          <a [href]="resource.link" class="card-link" target="_blank">Start Learning</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

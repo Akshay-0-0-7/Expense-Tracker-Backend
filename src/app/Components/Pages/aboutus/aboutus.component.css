@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* General Styles */
+.aboutus {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4ff;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    background-color: #fff;
+    animation: slideUp 1s ease-out;
+    transition: all 0.3s ease;
+}
+
+.container {
+    padding-top: 65px;
+}
+
+/* Headings */
+h2, h4 {
+    color: #4070f4;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Paragraphs */
+p {
+    color: #333;
+    animation: fadeIn 1.4s ease-in-out;
+}
+
+/* Link Styling */
+a {
+    animation: fadeIn 1.6s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content {
+        width: 90%; /* Reduce width on medium screens */
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        width: 95%; /* Reduce width on tablets */
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        width: 100%; /* Full-width on small devices */
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
