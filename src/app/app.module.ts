@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './Components/Forms/login/login.component';
@@ -11,6 +13,8 @@ import { AboutusComponent } from './Components/Pages/aboutus/aboutus.component';
 import { StocksComponent } from './Components/Pages/stocks/stocks.component';
 import { LearningComponent } from './Components/Pages/learning/learning.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountsComponent } from './Components/Pages/accounts/accounts.component';
+import { ForgotPasswordComponent } from './Components/Forms/forgotpassword/forgotpassword.component';
 
 
 @NgModule({
@@ -22,12 +26,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutusComponent,
     StocksComponent,
     LearningComponent,
+    AccountsComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

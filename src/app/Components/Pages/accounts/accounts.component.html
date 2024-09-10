@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Accounts</h2>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAccountModal">Add Account</button>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let account of accounts; let i = index" [@fadeIn]>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ account.bankName }}</h5>
+          <p class="card-text">Account Number: {{ account.accountNumber }}</p>
+          <p class="card-text">Balance: {{ account.balance | currency:'INR' }}</p>
+          <button class="btn btn-warning me-2" (click)="openUpdateModal(i)" data-bs-toggle="modal" data-bs-target="#updateAccountModal">Update</button>
+          <button class="btn btn-danger" (click)="deleteAccount(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Account Modal -->
+<div class="modal fade" id="addAccountModal" tabindex="-1" aria-labelledby="addAccountModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAccountModalLabel">Add Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addAccountForm="ngForm">
+          <div class="mb-3">
+            <label for="bankName" class="form-label">Bank Name</label>
+            <input type="text" class="form-control" id="bankName" [(ngModel)]="newAccount.bankName" name="bankName" required>
+          </div>
+          <div class="mb-3">
+            <label for="accountNumber" class="form-label">Account Number</label>
+            <input type="text" class="form-control" id="accountNumber" [(ngModel)]="newAccount.accountNumber" name="accountNumber" required>
+          </div>
+          <div class="mb-3">
+            <label for="balance" class="form-label">Balance</label>
+            <input type="number" class="form-control" id="balance" [(ngModel)]="newAccount.balance" name="balance" required>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addAccount()" data-bs-dismiss="modal">Add Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Account Modal -->
+<div class="modal fade" id="updateAccountModal" tabindex="-1" aria-labelledby="updateAccountModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateAccountModalLabel">Update Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #updateAccountForm="ngForm">
+          <div class="mb-3">
+            <label for="updateBankName" class="form-label">Bank Name</label>
+            <input type="text" class="form-control" id="updateBankName" [(ngModel)]="selectedAccount.bankName!" name="bankName" required>
+          </div>
+          <div class="mb-3">
+            <label for="updateAccountNumber" class="form-label">Account Number</label>
+            <input type="text" class="form-control" id="updateAccountNumber" [(ngModel)]="selectedAccount.accountNumber!" name="accountNumber" required>
+          </div>
+          <div class="mb-3">
+            <label for="updateBalance" class="form-label">Balance</label>
+            <input type="number" class="form-control" id="updateBalance" [(ngModel)]="selectedAccount.balance" name="balance" required>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="updateAccount()" data-bs-dismiss="modal">Update Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
