@@ -15,6 +15,9 @@ import { LearningComponent } from './Components/Pages/learning/learning.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountsComponent } from './Components/Pages/accounts/accounts.component';
 import { ForgotPasswordComponent } from './Components/Forms/forgotpassword/forgotpassword.component';
+import { TransactionsComponent } from './Components/Pages/transactions/transactions.component';
+import { HeaderComponent } from './Components/Navigation/header/header.component';
+import { SidebarComponent } from './Components/Navigation/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { ForgotPasswordComponent } from './Components/Forms/forgotpassword/forgo
     LearningComponent,
     AccountsComponent,
     ForgotPasswordComponent,
+    TransactionsComponent,
+    HeaderComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

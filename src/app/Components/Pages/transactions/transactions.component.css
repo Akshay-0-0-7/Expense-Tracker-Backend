@@ -1,0 +1,24 @@
+.container {
+    padding-top: 60px;
+}
+
+.modal {
+    display: none;
+}
+
+.modal.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.radiobtn {
+    margin-right: 10px;
+}
+
+#type {
+    margin-bottom: 5px;
+}
+
+th,td{
+    text-align: center;
+}

@@ -8,6 +8,7 @@ import { AboutusComponent } from './Components/Pages/aboutus/aboutus.component';
 import { AccountsComponent } from './Components/Pages/accounts/accounts.component';
 import { LearningComponent } from './Components/Pages/learning/learning.component';
 import { StocksComponent } from './Components/Pages/stocks/stocks.component';
+import { TransactionsComponent } from './Components/Pages/transactions/transactions.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -16,7 +17,10 @@ const routes: Routes = [
   {path:"stocks",component:StocksComponent},
   {path:"learning",component:LearningComponent},
   {path:"accounts",component:AccountsComponent},
-  {path:"forgotpassword",component:ForgotPasswordComponent}
+  {path:"forgotpassword",component:ForgotPasswordComponent},
+  {path:"transactions",component:TransactionsComponent},
+  {path:"home",component:LoginComponent},
+  {path:"analytics",component:LoginComponent}
 ];
 
 @NgModule({
