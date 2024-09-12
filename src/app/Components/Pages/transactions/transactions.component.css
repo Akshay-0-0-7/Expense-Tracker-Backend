@@ -22,3 +22,7 @@
 th,td{
     text-align: center;
 }
+
+.option{
+    display: flex;
+}
