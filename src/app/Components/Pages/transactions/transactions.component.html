@@ -29,6 +29,10 @@
               <label for="expense">Expense</label>
             </div>
           </div>
+          <div class="mb-3">
+            <label for="descriptions" class="form-label">Description</label>
+            <textarea id="descriptions" cols="30" rows="5" formControlName="note"></textarea>
+          </div>
           <button type="button" class="btn btn-primary me-2" (click)="showModal = true">+ Add Category</button>
           <button type="submit" class="btn btn-success">Add Transaction</button>
         </form>
@@ -43,6 +47,7 @@
               <th>Amount (INR)</th>
               <th>Category</th>
               <th>Type</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
@@ -55,6 +60,7 @@
                   {{ transaction.type }}
                 </span>
               </td>
+              <td>{{ transaction.note }}</td>
             </tr>
           </tbody>
         </table>

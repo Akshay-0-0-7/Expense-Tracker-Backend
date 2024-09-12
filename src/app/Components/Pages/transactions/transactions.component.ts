@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Transaction } from '../../../Models/Transaction';
+import { Category } from '../../../Models/Category';
 
 @Component({
   selector: 'app-transactions',
@@ -19,7 +20,7 @@ import { Transaction } from '../../../Models/Transaction';
 
 export class TransactionsComponent {
   todayDate: string = new Date().toISOString().split('T')[0];
-  categories: { id: number; name: string }[] = [
+  categories: Category[] = [
     { id: 1, name: 'Food' },
     { id: 2, name: 'Entertainment' },
     { id: 3, name: 'Transportation' },
@@ -37,7 +38,8 @@ export class TransactionsComponent {
       date: [this.todayDate, Validators.required],
       amount: [null, [Validators.required, Validators.min(1)]],
       category: [null, Validators.required],
-      type: [null, Validators.required]
+      type: [null, Validators.required],
+      note: [null, Validators.required]
     });
   }
 
@@ -47,6 +49,7 @@ export class TransactionsComponent {
       this.transactionForm.reset({ date: this.todayDate });
       this.transactionForm.get('category')?.setValue(null);
       this.transactionForm.get('type')?.setValue(null);
+      this.transactionForm.get('note')?.setValue(null);
     }
   }
 
