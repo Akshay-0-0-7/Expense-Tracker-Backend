@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Expense-Tracker-Frontend';
+  sideNavStatus: boolean = false;
+
 }

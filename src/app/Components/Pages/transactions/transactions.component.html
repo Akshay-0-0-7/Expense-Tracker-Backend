@@ -1,0 +1,83 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Add Transaction</h3>
+        <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()" [@fadeIn]>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" id="date" class="form-control" formControlName="date">
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount (INR)</label>
+            <input type="number" id="amount" class="form-control" formControlName="amount" placeholder="Enter amount in INR">
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select id="category" class="form-select" formControlName="category">
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label id="type">Type</label><br>
+            <div>
+              <input type="radio" class="radiobtn" id="income" value="Income" formControlName="type">
+              <label for="income">Income</label>
+            </div>
+            <div>
+              <input type="radio" class="radiobtn" id="expense" value="Expense" formControlName="type">
+              <label for="expense">Expense</label>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary me-2" (click)="showModal = true">+ Add Category</button>
+          <button type="submit" class="btn btn-success">Add Transaction</button>
+        </form>
+      </div>
+  
+      <div class="col-md-8">
+        <h3>Transaction List</h3>
+        <table class="table table-striped table-hover" [@fadeIn]>
+          <thead class="table-dark">
+            <tr>
+              <th>Date</th>
+              <th>Amount (INR)</th>
+              <th>Category</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <td>{{ transaction.date }}</td>
+              <td>{{ transaction.amount }}</td>
+              <td>{{ transaction.category }}</td>
+              <td>
+                <span class="badge" [ngClass]="transaction.type === 'Income' ? 'bg-success' : 'bg-danger'">
+                  {{ transaction.type }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    <div class="modal" tabindex="-1" [ngClass]="{'show': showModal}" [style.display]="showModal ? 'block' : 'none'">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Category</h5>
+            <button type="button" class="btn-close" (click)="showModal = false"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="newCategory" class="form-label">Category Name</label>
+              <input type="text" id="newCategory" class="form-control" [(ngModel)]="newCategory">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="showModal = false">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addCategory()">Add Category</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
