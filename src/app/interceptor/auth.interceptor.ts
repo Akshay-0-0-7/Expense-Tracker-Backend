@@ -32,6 +32,7 @@ export class AuthInterceptor implements HttpInterceptor {
           // Optionally, you can redirect to the login page or show a message
           console.error('Unauthorized request - redirecting to login');
           // Redirect to login or show a message
+          alert("You are not authorized to view this page")
         }
         return throwError(() => error); // Rethrow the error
       })

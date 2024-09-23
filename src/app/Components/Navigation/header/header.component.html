@@ -10,7 +10,9 @@
         <button class="btn btn-outline-light" type="submit">Search</button>
     </form>
 
-    <button class="btn btn-outline-light" type="submit" routerLink="login"><i class="fa-solid fa-right-to-bracket me-2"></i>Login</button>
 
+    <button class="btn btn-outline-light" type="button" *ngIf="isLoggedIn" (click)="userLogout()" ><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>
+
+    <button class="btn btn-outline-light" type="button"  routerLink="login" *ngIf="!isLoggedIn" ><i class="fa-solid fa-right-to-bracket me-2"></i>Login</button>
 
 </nav>

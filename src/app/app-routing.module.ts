@@ -9,12 +9,13 @@ import { AccountsComponent } from './Components/Pages/accounts/accounts.componen
 import { LearningComponent } from './Components/Pages/learning/learning.component';
 import { StocksComponent } from './Components/Pages/stocks/stocks.component';
 import { TransactionsComponent } from './Components/Pages/transactions/transactions.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"about-us",component:AboutusComponent},
-  {path:"stocks",component:StocksComponent},
+  {path:"stocks",component:StocksComponent,canActivate:[AuthGuard]},
   {path:"learning",component:LearningComponent},
   {path:"accounts",component:AccountsComponent},
   {path:"forgotpassword",component:ForgotPasswordComponent},

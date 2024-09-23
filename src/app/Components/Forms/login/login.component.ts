@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../Services/auth.service';import { Router } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { AuthService } from '../../../Services/auth.service';import { Router } f
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  @Output() isLoggedInEvent = new EventEmitter<boolean>();
+
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -23,7 +25,7 @@ export class LoginComponent {
       this.authService.login(loginDto).subscribe({
         next: (response) => {
           // Handle successful login, e.g., store token
-          localStorage.setItem('authToken', response.token); // Assuming the token is returned in the response
+          localStorage.setItem('authToken', response.token); // Now TypeScript knows response has a token
           this.router.navigate(['accounts']); // Redirect to a protected route
         },
         error: (err) => {
