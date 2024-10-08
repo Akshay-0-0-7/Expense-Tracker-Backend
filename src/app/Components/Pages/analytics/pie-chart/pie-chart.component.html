@@ -1,0 +1,95 @@
+<div class="pie-chart-container">
+    <h1>Expense Distribution</h1>
+
+    <div class="view-toggle">
+        <button 
+            class="toggle-button" 
+            [class.active]="isMonthly" 
+            (click)="toggleView('monthly')">
+            Monthly
+        </button>
+        <button 
+            class="toggle-button" 
+            [class.active]="!isMonthly" 
+            (click)="toggleView('daily')">
+            Daily
+        </button>
+    </div>
+
+    <div class="chart-and-table">
+        <div class="chart-container">
+            <canvas id="expensePieChart"></canvas>
+        </div>
+
+        <div class="expense-table">
+            <h2>Total Expenses by Category</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of currentData.categories">
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.amount | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add some styles to improve layout -->
+<style scoped>
+.pie-chart-container {
+    padding: 20px;
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin-right: 5px; /* Spacing between buttons */
+}
+
+.toggle-button.active {
+    background-color: #2196F3; /* Active button color */
+    color: white; /* Text color for active button */
+}
+
+.chart-and-table {
+    display: flex;
+}
+
+.chart-container {
+    flex-grow: 2; /* Allow chart to take more space */
+}
+
+.expense-table {
+    margin-left: 20px; /* Space between chart and table */
+}
+
+table {
+    width:auto; /* Adjust width as needed */
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color:#f2f2f2;
+}
+</style>

@@ -24,8 +24,12 @@ import { AnalyticsComponent } from './Components/Pages/analytics/analytics.compo
 
 // Chart Module
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 import { CurrentStatusComponent } from './Components/Pages/analytics/current-status/current-status.component';
-import { RecentTransactionsComponent } from './Components/Pages/analytics/recent-transactions/recent-transactions.component';@NgModule({
+import { RecentTransactionsComponent } from './Components/Pages/analytics/recent-transactions/recent-transactions.component';
+import { PieChartComponent } from './Components/Pages/analytics/pie-chart/pie-chart.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { BarChartComponent } from './Components/Pages/analytics/bar-chart/bar-chart.component';@NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -42,6 +46,8 @@ import { RecentTransactionsComponent } from './Components/Pages/analytics/recent
     AnalyticsComponent,
     CurrentStatusComponent,
     RecentTransactionsComponent,
+    PieChartComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,10 @@ import { RecentTransactionsComponent } from './Components/Pages/analytics/recent
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BaseChartDirective,
+    FullCalendarModule
+
   ],
   providers: [
     provideCharts(withDefaultRegisterables()) // Adding provideCharts here
