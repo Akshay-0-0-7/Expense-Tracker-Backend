@@ -6,6 +6,7 @@ import { LoginComponent } from './Components/Forms/login/login.component';
 import { RegisterComponent } from './Components/Forms/register/register.component';
 import { AboutusComponent } from './Components/Pages/aboutus/aboutus.component';
 import { AccountsComponent } from './Components/Pages/accounts/accounts.component';
+import { AnalyticsComponent } from './Components/Pages/analytics/analytics.component';
 import { LearningComponent } from './Components/Pages/learning/learning.component';
 import { StocksComponent } from './Components/Pages/stocks/stocks.component';
 import { TransactionsComponent } from './Components/Pages/transactions/transactions.component';
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path:"forgotpassword",component:ForgotPasswordComponent},
   {path:"transactions",component:TransactionsComponent},
   {path:"home",component:LoginComponent},
-  {path:"analytics",component:LoginComponent}
+  {path:"analytics",component:AnalyticsComponent}
 ];
 
 @NgModule({

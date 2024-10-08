@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -21,8 +20,12 @@ import { SidebarComponent } from './Components/Navigation/sidebar/sidebar.compon
 
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnalyticsComponent } from './Components/Pages/analytics/analytics.component';
 
-@NgModule({
+// Chart Module
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { CurrentStatusComponent } from './Components/Pages/analytics/current-status/current-status.component';
+import { RecentTransactionsComponent } from './Components/Pages/analytics/recent-transactions/recent-transactions.component';@NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -36,6 +39,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TransactionsComponent,
     HeaderComponent,
     SidebarComponent,
+    AnalyticsComponent,
+    CurrentStatusComponent,
+    RecentTransactionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule
   ],
+  providers: [
+    provideCharts(withDefaultRegisterables()) // Adding provideCharts here
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
