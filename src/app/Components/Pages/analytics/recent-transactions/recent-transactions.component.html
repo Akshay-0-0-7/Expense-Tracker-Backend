@@ -1,1 +1,108 @@
-<p>recent-transactions works!</p>
+<div class="analytics-container">
+    <h3>Recent Transactions</h3>
+
+    <div class="view-toggle">
+        <button 
+            class="toggle-button" 
+            [class.active]="showExpenses" 
+            (click)="toggleTransactions('expense')">
+            Expenses
+        </button>
+        <button 
+            class="toggle-button" 
+            [class.active]="!showExpenses" 
+            (click)="toggleTransactions('income')">
+            Income
+        </button>
+    </div>
+
+    <section class="recent-transactions">
+        <h4>{{ showExpenses ? 'Expenses' : 'Incomes' }}</h4>
+        <ng-container *ngIf="showExpenses; else incomeTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let expense of recentExpenses">
+                        <td>{{ expense.date | date }}</td>
+                        <td>{{ expense.category }}</td>
+                        <td>{{ expense.amount | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-container>
+
+        <ng-template #incomeTable>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let income of recentIncomes">
+                        <td>{{ income.date | date }}</td>
+                        <td>{{ income.category }}</td>
+                        <td>{{ income.amount | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-template>
+
+    </section>
+
+</div>
+
+<!-- Add some styles to improve layout -->
+<style scoped>
+.analytics-container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin: 0 5px; /* Spacing between buttons */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button.active {
+    background-color: #2196F3; /* Active button color */
+    color: white; /* Text color for active button */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+</style>
